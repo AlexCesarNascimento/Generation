@@ -23,34 +23,37 @@ public class L3_Ex4 {
 	public static void main(String args[])
 	{
 		Scanner read = new Scanner(System.in);
-		int i=0, idade, personalidade = 0, cont_calm=0, cont_nerv_fem=0, genero=0;
+		int i=0, idade, personalidade = 0, cont_calm=0, cont_nerv_fem=0;
 		int cont_nerv_40=0, cont_agre_masc=0, cont_calm_outr=0, cont_calm_18=0;
+		char genero;
 				
 		while(i<5)
 		{
 			System.out.println("Responda o questionario abaixo: ");
 			
+			System.out.println("==================");
 			System.out.println("\nIdade: ");
 			idade = read.nextInt();
-					
-			System.out.println("\nSexo: \n\n[1] - Masculino\n[2] - Feminino\n[3] - Outros");
-			genero = read.nextInt();
+			System.out.println("==================");
 			
+			System.out.println("\nSexo: \n\n[m] - Masculino\n[f] - Feminino\n[o] - Outros");
+			genero = read.next().charAt(0);
+			System.out.println("==================");
 		
 			System.out.println("\nComo é sua personalidade: \n\n[1] Calma\n[2] Nervosa\n[3] Agressiva");
 			personalidade = read.nextInt();
-			
+			System.out.println("==================");
 			
 			if(personalidade == 1) 				//o número de pessoas calmas
 				cont_calm++;
 					
-			if(personalidade == 2 && genero==2 )//o número de mulheres nervosas
+			if(personalidade == 2 && genero=='f' )//o número de mulheres nervosas
 				cont_nerv_fem++;
 			
-			if(personalidade == 3 && genero==1) //o número de homens agressivos
+			if(personalidade == 3 && genero=='m') //o número de homens agressivos
 				cont_agre_masc++;
 			
-			if(personalidade == 1 && genero==3) //o número de outros calmos
+			if(personalidade == 1 && genero=='o') //o número de outros calmos
 				cont_calm_outr++;
 			
 			if(personalidade == 2 && idade>40) //o número de pessoas nervosas com mais de 40 anos
