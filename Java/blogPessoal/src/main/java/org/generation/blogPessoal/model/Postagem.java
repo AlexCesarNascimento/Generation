@@ -9,14 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "postagem")
-
 public class Postagem {
 		
 		@Id
@@ -32,7 +31,7 @@ public class Postagem {
 		private String texto;
 		
 		@Temporal(TemporalType.TIMESTAMP)
-		private Date date = new java.sql.Date(System.currentTimeMillis());
+		private Date data = new java.sql.Date(System.currentTimeMillis());
 
 		public long getId() {
 			return id;
@@ -59,10 +58,10 @@ public class Postagem {
 		}
 
 		public Date getDate() {
-			return date;
+			return data;
 		}
 
-		public void setDate(Date date) {
-			this.date = date;
+		public void setDate(Date data) {
+			this.data = data;
 		}		
 }
