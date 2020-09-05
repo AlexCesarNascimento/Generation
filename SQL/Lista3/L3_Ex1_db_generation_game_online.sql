@@ -47,7 +47,7 @@ select * from tb_personagem;
 -- select * from tb_personagem where ataque > 2000
 -- select * from tb_personagem where defesa between 1000 and 2000
 -- select * from tb_personagem where nome like "%ma%"
--- select * from tb_classe inner join tb_personagem on tb_personagem.id = tb_classe.id_classe
--- select * from tb_personagem inner join tb_classe on tb_personagem.classe_id = tb_classe.id where tb_personagem.classe = "Mago"
+-- select * from tb_personagem inner join tb_classe on tb_personagem.classe_id = tb_classe.id
 
-select * from tb_personagem inner join tb_classe on tb_personagem.classe_id = tb_classe.id
+select * from tb_personagem inner join tb_classe on tb_personagem.classe_id = tb_classe.id where tb_personagem.classe = "Mago"
+
