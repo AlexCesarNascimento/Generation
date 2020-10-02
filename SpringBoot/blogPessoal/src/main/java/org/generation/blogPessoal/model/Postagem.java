@@ -33,6 +33,10 @@ public class Postagem {
 		
 		@Temporal(TemporalType.TIMESTAMP)
 		private Date data = new java.sql.Date(System.currentTimeMillis());
+
+		@ManyToOne  // Serve para indicar que é um relacionamento muitos para um
+		@JsonIgnoreProperties("postagem")
+		private Usuario usuario;
 		
 		@ManyToOne
 		@JsonIgnoreProperties("postagem")
@@ -77,5 +81,15 @@ public class Postagem {
 		public void setTema(Tema tema) {
 			this.tema = tema;
 		}
+
+		public Usuario getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(Usuario usuario) {
+			this.usuario = usuario;
+		}
+		
+		
 
 }

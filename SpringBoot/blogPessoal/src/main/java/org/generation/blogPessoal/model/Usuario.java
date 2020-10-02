@@ -10,24 +10,34 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_tema")
-public class Tema {
+@Table(name = "tb_usuario")
+public class Usuario {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@NotNull
-	private String descricao;
+	@Size(min= 2, max = 100)
+	private String nome;
 	
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL )
-	@JsonIgnoreProperties("tema")
-	private List<Postagem> postagem;
+	@NotNull
+	@Size(min= 5, max = 100)
+	private String usuario;
+	
+	@NotNull
+	@Size(min= 5, max = 100)
+	private String senha;
 
+	@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<Postagem> postagem;
+	
 	public long getId() {
 		return id;
 	}
@@ -36,12 +46,28 @@ public class Tema {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public List<Postagem> getPostagem() {
@@ -51,5 +77,7 @@ public class Tema {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
+	
+	
 	
 }
